@@ -5,6 +5,7 @@ public class Employee {
     private double salary;
     private double bonus;
     private boolean resident;
+    private static int no_of_employees;
 
     public Employee() {
         emp_name = "no name";
@@ -12,11 +13,13 @@ public class Employee {
         bonus = 0;
         depart = "not assigned";
         resident = true;
+        no_of_employees++;
     }
 
     public Employee(int id, String name) {
         emp_id = id;
         emp_name = name;
+        no_of_employees++;
     }
 
     public Employee(int id, String name, boolean r) {
@@ -29,6 +32,10 @@ public class Employee {
         bonus = b;
         salary = s;
         depart = d;
+    }
+
+    public static int getNo_of_employees() {
+        return no_of_employees;
     }
 
     public void setSalary(double salary) {
@@ -55,5 +62,6 @@ class EmployeeClass {
         Employee e1 = new Employee(1, "fekry", "egypt", true, 100, 1000);
         e1.setSalaryAndBonus(4000, 200);
         e1.printData();
+        System.out.println(Employee.getNo_of_employees());
     }
 }
