@@ -31,11 +31,36 @@ class Rectangle {
     public void setLength(double l) {
         length = l;
     };
+
+    public void modifyObject(Rectangle obj) {
+        // This will modify the object passed to the method
+        obj.length = 30;
+        obj.width = 20;
+    }
+
+    public static Rectangle addObjects(Rectangle obj1, Rectangle obj2) {
+        Rectangle result = new Rectangle();
+
+        result.setLength(obj1.getLength() + obj2.getLength());
+        result.setWidth(obj1.getWidth() + obj2.getWidth());
+
+        return result;
+    }
 }
 
 class RectangleClass {
     public static void main(String[] args) {
         Rectangle r1 = new Rectangle(8.5, 8.5);
-        System.out.println(r1.getLength());
+        // System.out.println(r1.getLength());
+
+        Rectangle myInputObj = new Rectangle(1, 2);
+
+        System.out.println(myInputObj.getWidth());
+        System.out.println(myInputObj.getLength());
+
+        r1.modifyObject(myInputObj);
+
+        System.out.println(myInputObj.getWidth());
+        System.out.println(myInputObj.getLength());
     }
 }
